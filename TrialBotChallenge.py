@@ -52,4 +52,4 @@ async def deleteMessage(ctx):
         
 
         
-bot.run("NDg1NTg2MjkzMDc4ODg0MzY0.DohzpA.dsnDU0zxQqspzfQZ9sDHkKzWL3k")
+bot.run("")
