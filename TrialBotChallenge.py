@@ -17,7 +17,7 @@ async def on_ready():
     print(bot.user.id)
     print('------')
 
-trialsServer = 'hi'
+trialsServer = bot.get_guild(483854858974265344)
 
 startTimes = {}
 peopleDoingChallenge = []
@@ -46,10 +46,9 @@ async def deleteMessage(ctx):
     await bot.wait_until_ready()
     await ctx.send(ctx.message.guild.id)
     global trialsServer
-    msg = await ctx.send("Message deleted in 5 seconds. This bot comes from " + trialsServer + ".")
+    msg = await ctx.send("Message deleted in 5 seconds. This bot comes from " + trialsServer.name + ".")
     await asyncio.sleep(5)
     await msg.delete()
         
 
-        
 bot.run(os.getenv('TOKEN'))
