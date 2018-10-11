@@ -52,4 +52,4 @@ async def deleteMessage(ctx):
         
 
         
-bot.run("")
+bot.run(os.getenv('TOKEN'))
