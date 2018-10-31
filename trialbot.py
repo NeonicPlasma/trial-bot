@@ -19,6 +19,52 @@ async def on_ready():
 
 trialsServer = bot.get_guild(483854858974265344)
 
+novaData = {
+ # Important Scores #
+ "Starting Time": 0,
+ "Finishing Time": 0,
+ "Time": 0,
+ "Score": 0,
+ # Stage 1 #
+ "Question Number": 0,
+ # Stage 2 #
+ "OWs": 0,
+ # Stage 3 #
+ "EmojiSet1": 0,
+ "EmojiSet2": 0,
+ "EmojiSet3": 0,
+ # Other Important Stuff #
+ "Current Stage": 0,
+ "StartingChallenge": False,
+ "StartedChallenge": False,
+}
+
+stg1Questions = [
+    ["By the end of The Trials stage, who was leading in points?", "tr_", "Supernova727", "So", "A"],
+    ["By the end of The Trials stage, who had been UFE the most times?", "turtley", "Achoo", "Lightbat28", "B"],
+    ["Who got 1st in Challenge 1?", "Bagels (TheThaiGoat / Henry Kinderman)", "Supernova727", "attacker00", "A"],
+    ["Who got 1st in challenge 4?", "attacker00", "So", "tr_", "MrIASA", "B"],
+    ["What is the theme color for The Trials (used in artwork a lot)?", "Green", "Yellow", "Red", "Orange", "B"],
+    ["What is TrialBot’s tag? (answer it like “t.answer 5352” if you think 5352 was the tag)", "3426"],
+    ["How many contestants finished the challenge in Round 1?", "9"],
+    
+async def stage1(user, question = 1):
+    global stg1Questions
+    global novaData
+    questionArray = question - 1
+    questionTable = stg1Questions[questionArray]
+    actualQuestion = questionTable[0]
+    novaData["Question Number"] = question
+    if question <= 3:
+        string = "**" + actualQuestion + "\nA:** " + questionTable[1] + "\n**B:** " + questionTable[2] + "\n**C:** " + questionTable[3]
+        user.send(string)
+    elif question <= 5:
+        string = "**" + actualQuestion + "\nA:** " + questionTable[1] + "\n**B:** " + questionTable[2] + "\n**C:** " + questionTable[3] + "\n**D:** " + questionTable[4]
+        user.send(string)
+    else:
+        string = "**" + actualQuestion + "**"
+        user.send(string)
+
 @bot.command()
 async def startchallenge(ctx):
     guild = ctx.message.guild
@@ -35,8 +81,9 @@ async def begin(ctx):
         await ctx.send('**You can only use this in DMs.**')
     else:
         await ctx.send('Challenge is starting! Starting in 10 seconds, get ready!')
-        await asyncio.sleep(5)
+        await asyncio.sleep(10)
         await ctx.send('**Challenge has started!**')
+        await stage1(user)
 
 @bot.command()
 async def deleteMessage(ctx):
