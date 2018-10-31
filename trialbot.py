@@ -19,9 +19,6 @@ async def on_ready():
 
 trialsServer = bot.get_guild(483854858974265344)
 
-startTimes = {}
-peopleDoingChallenge = []
-
 @bot.command()
 async def startchallenge(ctx):
     guild = ctx.message.guild
@@ -33,7 +30,7 @@ async def startchallenge(ctx):
 @bot.command()
 async def begin(ctx):
     guild = ctx.message.guild
-    user = ctx.message.user
+    user = ctx.message.author
     if guild:
         await ctx.send('**You can only use this in DMs.**')
     else:
