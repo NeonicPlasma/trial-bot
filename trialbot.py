@@ -44,21 +44,21 @@ stg1Questions = [
     ["How many contestants finished the challenge in Round 1?", "9"]
 ]
     
-async def stage1(user):
+async def stage1(user, questionNum):
     global stg1Questions
     global novaData
-    questionArray = question - 1
+    questionArray = questionNum - 1
     questionTable = stg1Questions[questionArray]
-    actualQuestion = questionTable[0]
+    question = questionTable[0]
     novaData["Question Number"] = question
-    if question <= 3:
-        string = "**" + actualQuestion + "\nA:** " + questionTable[1] + "\n**B:** " + questionTable[2] + "\n**C:** " + questionTable[3]
+    if questionNum <= 3:
+        string = "**" + question + "\nA:** " + questionTable[1] + "\n**B:** " + questionTable[2] + "\n**C:** " + questionTable[3]
         await user.send(string)
-    elif question <= 5:
-        string = "**" + actualQuestion + "\nA:** " + questionTable[1] + "\n**B:** " + questionTable[2] + "\n**C:** " + questionTable[3] + "\n**D:** " + questionTable[4]
+    elif questionNum <= 5:
+        string = "**" + question + "\nA:** " + questionTable[1] + "\n**B:** " + questionTable[2] + "\n**C:** " + questionTable[3] + "\n**D:** " + questionTable[4]
         await user.send(string)
     else:
-        string = "**" + actualQuestion + "**"
+        string = "**" + question + "**"
         await user.send(string)
 
 @bot.command()
