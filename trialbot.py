@@ -34,7 +34,7 @@ novaData = {
  "StartedChallenge": False
 }
 
-global currentCorrectAnswer = ""
+currentCorrectAnswer = ""
 
 stg1Questions = [
     ["By the end of The Trials stage, who was leading in points?", "tr_", "Supernova727", "So", "A"],
