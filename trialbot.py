@@ -20,20 +20,15 @@ async def on_ready():
 trialsServer = bot.get_guild(483854858974265344)
 
 novaData = {
- # Important Scores #
  "Starting Time": 0,
  "Finishing Time": 0,
  "Time": 0,
  "Score": 0,
- # Stage 1 #
  "Question Number": 0,
- # Stage 2 #
  "OWs": 0,
- # Stage 3 #
  "EmojiSet1": 0,
  "EmojiSet2": 0,
  "EmojiSet3": 0,
- # Other Important Stuff #
  "Current Stage": 0,
  "StartingChallenge": False,
  "StartedChallenge": False
