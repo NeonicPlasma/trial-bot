@@ -34,6 +34,8 @@ novaData = {
  "StartedChallenge": False
 }
 
+global currentCorrectAnswer = ""
+
 stg1Questions = [
     ["By the end of The Trials stage, who was leading in points?", "tr_", "Supernova727", "So", "A"],
     ["By the end of The Trials stage, who had been UFE the most times?", "turtley", "Achoo", "Lightbat28", "B"],
@@ -46,19 +48,21 @@ stg1Questions = [
     
 async def stage1(user, questionNum):
     global stg1Questions
+    global currentCorrectAnswer
     global novaData
     questionArray = questionNum - 1
     questionTable = stg1Questions[questionArray]
     question = questionTable[0]
     novaData["Question Number"] = question
+    currentCorrectAnswer = questionTable[len(questionTable) - 1]
     if questionNum <= 3:
-        string = "**" + question + "\nA:** " + questionTable[1] + "\n**B:** " + questionTable[2] + "\n**C:** " + questionTable[3]
+        string = "**#" + str(questionNum) + ": " + question + "\nA:** " + questionTable[1] + "\n**B:** " + questionTable[2] + "\n**C:** " + questionTable[3]
         await user.send(string)
     elif questionNum <= 5:
-        string = "**" + question + "\nA:** " + questionTable[1] + "\n**B:** " + questionTable[2] + "\n**C:** " + questionTable[3] + "\n**D:** " + questionTable[4]
+        string = "**#" + str(questionNum) + ": " + question + "\nA:** " + questionTable[1] + "\n**B:** " + questionTable[2] + "\n**C:** " + questionTable[3] + "\n**D:** " + questionTable[4]
         await user.send(string)
     else:
-        string = "**" + question + "**"
+        string = "**#" + str(questionNum) + ": " + question + "**"
         await user.send(string)
 
 @bot.command()
@@ -79,6 +83,7 @@ async def begin(ctx):
         await ctx.send('Challenge is starting! Starting in 10 seconds, get ready!')
         await asyncio.sleep(10)
         await ctx.send('**Challenge has started!**')
+        await ctx.send("**Stage 1**\nIn this stage, 7 questions will be asked. The first 5 are multichoice, the last 2 are not. If you get a multichoice question wrong twice, you suffer a 15 second penalty and you skip the question. If you get a non multi-choice question wrong twice then you suffer a 15 second penalty and you skip the question.")
         await stage1(user, 1)
 
 @bot.command()
@@ -89,6 +94,5 @@ async def deleteMessage(ctx):
     msg = await ctx.send("Message deleted in 5 seconds. This bot comes from " + trialsServer.name + ".")
     await asyncio.sleep(5)
     await msg.delete()
-        
 
 bot.run(os.getenv('TOKEN'))
