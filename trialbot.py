@@ -57,13 +57,13 @@ async def stage1(user, question = 1):
     novaData["Question Number"] = question
     if question <= 3:
         string = "**" + actualQuestion + "\nA:** " + questionTable[1] + "\n**B:** " + questionTable[2] + "\n**C:** " + questionTable[3]
-        user.send(string)
+        await user.send(string)
     elif question <= 5:
         string = "**" + actualQuestion + "\nA:** " + questionTable[1] + "\n**B:** " + questionTable[2] + "\n**C:** " + questionTable[3] + "\n**D:** " + questionTable[4]
-        user.send(string)
+        await user.send(string)
     else:
         string = "**" + actualQuestion + "**"
-        user.send(string)
+        await user.send(string)
 
 @bot.command()
 async def startchallenge(ctx):
