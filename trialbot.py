@@ -79,7 +79,7 @@ async def begin(ctx):
         await ctx.send('Challenge is starting! Starting in 10 seconds, get ready!')
         await asyncio.sleep(10)
         await ctx.send('**Challenge has started!**')
-        await stage1(user)
+        await stage1(user, 1)
 
 @bot.command()
 async def deleteMessage(ctx):
