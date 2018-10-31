@@ -42,6 +42,7 @@ stg1Questions = [
     ["What is the theme color for The Trials (used in artwork a lot)?", "Green", "Yellow", "Red", "Orange", "B"],
     ["What is TrialBot’s tag? (answer it like “t.answer 5352” if you think 5352 was the tag)", "3426"],
     ["How many contestants finished the challenge in Round 1?", "9"]
+]
     
 async def stage1(user):
     global stg1Questions
