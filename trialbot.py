@@ -36,7 +36,7 @@ novaData = {
  # Other Important Stuff #
  "Current Stage": 0,
  "StartingChallenge": False,
- "StartedChallenge": False,
+ "StartedChallenge": False
 }
 
 stg1Questions = [
@@ -46,7 +46,7 @@ stg1Questions = [
     ["Who got 1st in challenge 4?", "attacker00", "So", "tr_", "MrIASA", "B"],
     ["What is the theme color for The Trials (used in artwork a lot)?", "Green", "Yellow", "Red", "Orange", "B"],
     ["What is TrialBot’s tag? (answer it like “t.answer 5352” if you think 5352 was the tag)", "3426"],
-    ["How many contestants finished the challenge in Round 1?", "9"],
+    ["How many contestants finished the challenge in Round 1?", "9"]
     
 async def stage1(user, question = 1):
     global stg1Questions
